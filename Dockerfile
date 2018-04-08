@@ -17,16 +17,12 @@ RUN apk add --update \
     php7-xml \
     apache2-utils \
     git \
-    bash \
-    tree
+    bash
 
 RUN rm /etc/nginx/* -rfv \
-    git clone https://github.com/perusio/wordpress-nginx.git \
-    rm -vf wordpress-nginx/sites-available/000* wordpress-nginx/sites-available/example*
+    git clone https://github.com/perusio/wordpress-nginx.git /etc/nginx \
+    rm -rvf /etc/nginx/sites-available/000* /etc/nginx/sites-available/example* /etc/nginx/.git
 
-COPY wordpress-nginx/ /etc/nginx/
 COPY site.conf /etc/nginx/sites-available/
-
-RUN tree /etc/nginx
 
 CMD ["nginx", "-g", "daemon off;"]
