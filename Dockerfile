@@ -19,8 +19,8 @@ RUN apk add --update \
     git \
     bash
 
-RUN rm /etc/nginx/* -rfv \
-    git clone https://github.com/perusio/wordpress-nginx.git /etc/nginx \
+RUN rm /etc/nginx/* -rfv && \
+    git clone -v https://github.com/perusio/wordpress-nginx.git /etc/nginx && \
     rm -rvf /etc/nginx/sites-available/000* /etc/nginx/sites-available/example* /etc/nginx/.git
 
 COPY site.conf /etc/nginx/sites-available/
