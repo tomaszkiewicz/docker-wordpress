@@ -10,7 +10,7 @@ RUN apk add --update \
     nginx \
     php7-fpm \
     php7-cgi \
-    php7-mysql \
+    php7-mysqli \
     php7-gd \
     php7-mbstring \
     php7-zip \
