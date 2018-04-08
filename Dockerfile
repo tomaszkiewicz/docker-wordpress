@@ -15,7 +15,8 @@ RUN apk add --update \
     php7-mbstring \
     php7-zip \
     php7-xml \
-    apache2-utils
+    apache2-utils \
+    git
 
 RUN rm /etc/nginx/* -rfv \
     git clone https://github.com/perusio/wordpress-nginx.git \
