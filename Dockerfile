@@ -20,7 +20,7 @@ RUN apk add --update \
       git clone https://github.com/perusio/wordpress-nginx.git \
       rm -vf wordpress-nginx/sites-available/000* wordpress-nginx/sites-available/example*
 
-COPY wordpress-nginx/* /etc/nginx/
+COPY wordpress-nginx/ /etc/nginx/
 COPY site.conf /etc/nginx/sites-available
 
 CMD ["nginx", "-g", "daemon off;"]
