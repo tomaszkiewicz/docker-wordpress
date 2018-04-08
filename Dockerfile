@@ -16,7 +16,9 @@ RUN apk add --update \
     php7-zip \
     php7-xml \
     apache2-utils \
-    git
+    git \
+    bash \
+    tree
 
 RUN rm /etc/nginx/* -rfv \
     git clone https://github.com/perusio/wordpress-nginx.git \
@@ -24,5 +26,7 @@ RUN rm /etc/nginx/* -rfv \
 
 COPY wordpress-nginx/ /etc/nginx/
 COPY site.conf /etc/nginx/sites-available/
+
+RUN tree /etc/nginx
 
 CMD ["nginx", "-g", "daemon off;"]
