@@ -17,10 +17,11 @@ RUN apk add --update \
     php7-xml \
     apache2-utils \
     git \
-    bash
+    bash && \
+    adduser www-data -G www-data -D
 
 RUN rm /etc/nginx/* -rfv && \
-    git clone -v https://github.com/perusio/wordpress-nginx.git /etc/nginx && \
+    git clone -v https://github.com/tomaszkiewicz/wordpress-nginx.git /etc/nginx && \
     rm -rvf /etc/nginx/sites-available/000* /etc/nginx/sites-available/example* /etc/nginx/.git
 
 COPY site.conf /etc/nginx/sites-available/
