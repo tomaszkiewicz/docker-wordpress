@@ -26,5 +26,6 @@ RUN rm /etc/nginx/* -rfv && \
     mkdir -p /etc/nginx/sites-enabled
 
 COPY site.conf /etc/nginx/sites-enabled/
+COPY supervisord.conf /etc/
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
