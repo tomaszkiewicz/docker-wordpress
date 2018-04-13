@@ -18,6 +18,7 @@ RUN apk add --update \
     apache2-utils \
     git \
     bash && \
+    supervisor && \
     adduser www-data -G www-data -D
 
 RUN rm /etc/nginx/* -rfv && \
