@@ -18,6 +18,7 @@ RUN apk add --update \
     apache2-utils \
     git \
     bash && \
+    curl && \
     supervisor && \
     adduser www-data -G www-data -D
 
